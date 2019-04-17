@@ -59,15 +59,20 @@
     <h1>Kurs Reacta - tydzień 2</h1>
     <hr>
     <div class="App">
-        <div class="TimeboxEditor inactive">
-            <label>Co robisz? <input disabled value="Uczę się" type="text"></label><br>
-            <label>Ile minut? <input disabled value="25" type="number"></label><br>
-            <button disabled>Zacznij</button>
-        </div>
         <div id="root"></div>
     </div>
 </body>
 <script type="text/babel">
+
+    function TimeboxEditor() {
+        return(
+            <div className="TimeboxEditor inactive">
+                <label>Co robisz? <input disabled value="Uczę się" type="text" /></label><br />
+                <label>Ile minut? <input disabled value="25" type="number" /></label><br />
+                <button disabled>Zacznij</button>
+            </div>
+        )
+    }
     function Clock( {minutes= 10, second=12 }){
         return <h2 className="Clock">Pozostało { minutes}:{second}</h2>
     }
@@ -84,7 +89,6 @@
             <h1>Uczę się skrótów klawiszowych</h1>
             <Clock />
             <ProgressBar/>
-            
             <button disabled>Start</button>
             <button>Stop</button>
             <button>Pauza</button>
@@ -93,6 +97,6 @@
         )
     }
     
-    ReactDOM.render(<div><Timebox /></div>, document.getElementById("root"));
+    ReactDOM.render(<div><TimeboxEditor />,<Timebox /></div>, document.getElementById("root"));
 </script>
 </html>
