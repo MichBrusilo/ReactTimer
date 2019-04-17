@@ -66,7 +66,7 @@
         </div>
         <div class="Timebox">
             <h1>Uczę się skrótów klawiszowych</h1>
-            <h2 class="Clock">13:20</h2>
+            <div id="root"></div>
             <div class="progressBar">
                 <div style="width: 45%"></div>
             </div>
@@ -78,5 +78,11 @@
     </div>
 </body>
 <script type="text/babel">
+    function Clock( {minutes= 10, second=12 }){
+        return <h2 className="Clock">Pozostało { minutes}:{second}</h2>
+    }
+    const rootElement = document.getElementById("root");
+    const element = ( <Clock />)
+    ReactDOM.render(element, rootElement);
 </script>
 </html>
