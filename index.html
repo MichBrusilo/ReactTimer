@@ -58,9 +58,9 @@
 <body>
     <h1>Kurs Reacta - tydzień 2</h1>
     <hr>
-    <div class="App">
+   
         <div id="root"></div>
-    </div>
+    
 </body>
 <script type="text/babel">
 
@@ -96,7 +96,14 @@
         </div>
         )
     }
-    
-    ReactDOM.render(<div><TimeboxEditor />,<Timebox /></div>, document.getElementById("root"));
+    function App() {
+        return(
+            <div className="App">
+                <TimeboxEditor />
+                <Timebox />
+            </div>
+        )
+    }
+    ReactDOM.render(<div><App /></div>, document.getElementById("root"));
 </script>
 </html>
