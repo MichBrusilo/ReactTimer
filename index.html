@@ -91,6 +91,13 @@
                 pausesCount: 0
             }
         }
+        handleStop(event) {
+            this.setState( {
+            isRunning: false,
+            isPaused: false,
+            pausesCount: 0
+        })
+        }
         render() {
             const { isPaused, isRunning, pausesCount } = this.state;
         return(
@@ -99,7 +106,7 @@
             <Clock />
             <ProgressBar/>
             <button disabled={isRunning}>Start</button>
-            <button disabled={!isRunning}>Stop</button>
+            <button onClick={this.handleStop.bind(this)}disabled={!isRunning}>Stop</button>
             <button disabled={!isRunning}>{isPaused ? "Wznów" : "Pauza"}</button>
             Ilość przerw: {pausesCount}
         </div>
