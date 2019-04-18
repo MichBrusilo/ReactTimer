@@ -92,7 +92,7 @@
             }
             this.handleStart = this.handleStart.bind(this)
             this.handleStop = this.handleStop.bind(this)
-            this.pausesCount = this.tooglePause.bind(this)
+            this.tooglePause = this.tooglePause.bind(this)
         }
         handleStart(event) {
             this.setState({
@@ -109,7 +109,7 @@
        tooglePause() {
            this.setState(
                function(prevState) {
-                   const isPaused = !prevState.isPaused
+                   const isPaused = !prevState.isPaused;
                    return {
                        isPaused,
                        pausesCount: isPaused ? prevState.pausesCount + 1 : prevState.pausesCount
