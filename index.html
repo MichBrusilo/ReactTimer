@@ -96,7 +96,7 @@
         }
         handleStart(event) {
             this.setState({
-                isRunning: false
+                isRunning: true
             })
         }
         handleStop(event) {
@@ -124,9 +124,9 @@
             <h1>Uczę się skrótów klawiszowych</h1>
             <Clock className={isPaused ? "inactive" : ""}/>
             <ProgressBar className={isPaused ? "inactive" : ""}/>
-            <button onClick={this.handleStart}disabled={isRunning}>Start</button>
-            <button onClick={this.handleStop}disabled={!isRunning}>Stop</button>
-            <button onClick={this.tooglePause}disabled={!isRunning}>{isPaused ? "Wznów" : "Pauza"}</button>
+            <button onClick={this.handleStart} disabled={isRunning}>Start</button>
+            <button onClick={this.handleStop} disabled={!isRunning}>Stop</button>
+            <button onClick={this.tooglePause} disabled={!isRunning}>{isPaused ? "Wznów" : "Pauza"}</button>
             Ilość przerw: {pausesCount}
         </div>
         )
@@ -140,6 +140,6 @@
             </div>
         )
     }
-    ReactDOM.render(<div><App /></div>, document.getElementById("root"));
+    ReactDOM.render(<App />, document.getElementById("root"));
 </script>
 </html>
