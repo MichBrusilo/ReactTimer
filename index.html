@@ -88,7 +88,8 @@
             this.state = {
                 isRunning: false,
                 isPaused: false,
-                pausesCount: 0
+                pausesCount: 0,
+                elapsedTimeInSecounds: 0
             }
             this.handleStart = this.handleStart.bind(this)
             this.handleStop = this.handleStop.bind(this)
@@ -103,7 +104,9 @@
             this.setState( {
             isRunning: false,
             isPaused: false,
-            pausesCount: 0
+            pausesCount: 0,
+            elapsedTimeInSecounds: 0
+
         })
         }
        tooglePause() {
