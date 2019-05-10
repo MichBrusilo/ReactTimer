@@ -99,11 +99,7 @@
             this.setState({
                 isRunning: true,
             })
-            this.intervalId = window.setInterval(() => {
-                this.setState(
-                    prevState => ({ elapsedTimeInSeconds: prevState.elapsedTimeInSeconds + 1})
-                )
-            }, 1000);
+            this.startTimer();
         }
         handleStop(event) {
             this.setState( {
@@ -111,13 +107,28 @@
             isPaused: false,
             pausesCount: 0,
             elapsedTimeInSeconds: 0
-
         })
+            this.stopTimer();
+        }
+        stopTimer() {
+            window.clearInterval(this.intervalId)
+        }
+        startTimer() {
+            this.intervalId = window.setInterval(() => {
+                this.setState(
+                    prevState => ({ elapsedTimeInSeconds: prevState.elapsedTimeInSeconds + 0.1})
+                )
+            }, 100);
         }
        tooglePause() {
            this.setState(
                function(prevState) {
                    const isPaused = !prevState.isPaused;
+                   if (isPaused) {
+                       this.stopTimer();
+                   } else {
+                       this.startTimer();
+                   }
                    return {
                        isPaused,
                        pausesCount: isPaused ? prevState.pausesCount + 1 : prevState.pausesCount
