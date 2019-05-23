@@ -170,11 +170,21 @@
         )
         }
     }
+
+    class EditableTimebox extends React.Component {
+        render() {
+            return (
+                <>
+                <TimeboxEditor />
+                <Timebox />
+                </>
+            )
+        }
+    }
     function App() {
         return(
             <div className="App">
-                <TimeboxEditor />
-                <Timebox />
+                <EditableTimebox />
             </div>
         )
     }
